@@ -1,1 +1,54 @@
-/* 여기에 스타일을 구현해 주세요 */
+body {
+  background-color: rgb(160, 160, 160);
+}
+
+/* 
+상자의 배경은 그라디언트 효과 없이 흰색(#ffffff)으로 지정한다.
+상자의 안쪽 여백은 100px로 설정한다.
+*/
+.avatarsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #ffffff;
+  padding: 100px;
+  width: 340px;
+}
+
+.avatarWrapper {
+  position: relative;
+}
+
+/* 
+아바타 이미지의 크기 - 64px X 64px
+아바타 이미지 여백  - 20px (아바타마다 마진을 10px로 두면 아바타 끼리의 마진은 20px)
+*/
+.avatarImg {
+  width: 64px;
+  height: 64px;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.allStatus {
+  position: absolute;
+  right: 10px;
+  bottom: 15px;
+  width: 18px;
+  height: 18px;
+  border-radius: 100%;
+  border: 1px solid white;
+}
+
+/* 초록색 원 배경색 #4cfe88*/
+.allStatus.onlineStatus {
+  background-color: #4cfe88;
+}
+
+/* 회색 원 배경색 #dbdbdb */
+.allStatus.offlineStatus {
+  background-color: #dbdbdb;
+}
