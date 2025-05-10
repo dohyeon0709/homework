@@ -1,1 +1,205 @@
-/* CSS를 활용하여 레이아웃 및 스타일링을 완성해주세요 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:root {
+  /* 폰트 관련 */
+  --common-font-size: 1rem;
+  --common-font-color: #121212;
+  --font-size-14: 0.875rem;
+  --font-size-16: 1rem;
+
+  /* 색상 관련 */
+  --common-focus-color: #24388d;
+  --focus-naver-blue: #e9f0fd;
+  --naver-green: #03cf5d;
+  --border-color-gray: #dadada;
+  --white: #fff;
+
+  /* 여백, 크기 관련 */
+  --box-size: 45px;
+
+  --spacing-5: 0.3125rem;
+  --spacing-10: 0.625rem;
+  --spacing-20: 1.25rem;
+  --spacing-40: 2.5rem;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline: 2px solid var(--common-focus-color);
+}
+
+/* 로그인 섹션 */
+.loginSection {
+  width: 100%;
+  padding-inline: var(--spacing-20);
+
+  @media (width >= 768px) {
+    max-width: 500px;
+  }
+}
+
+/* 로고 */
+.logo {
+  margin-bottom: var(--spacing-40);
+  svg {
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* 폼 */
+form {
+  font-size: var(--common-font-size);
+  color: var(--common-font-color);
+}
+
+/* 입력서식 */
+.userInput {
+  input {
+    width: 100%;
+    padding-left: var(--spacing-20);
+    font-size: var(--font-size-14);
+    height: var(--box-size);
+    border: 1px solid var(--border-color-gray);
+    margin-top: var(--spacing-10);
+  }
+}
+
+small {
+  display: none;
+  margin-top: var(--spacing-5);
+  padding-inline: var(--spacing-20);
+}
+
+input:user-invalid + small {
+  display: block;
+  color: red;
+}
+
+input:focus {
+  outline: 1px solid var(--naver-green);
+  background: var(--focus-naver-blue);
+}
+
+/* 로그인 버튼 */
+button {
+  display: block;
+  width: 100%;
+  border: none;
+  font-size: var(--font-size-16);
+  height: var(--box-size);
+  color: var(--white);
+  background: var(--naver-green);
+  margin-top: var(--spacing-20);
+}
+
+button:focus {
+  outline: none;
+}
+
+.checkboxWrapper {
+  display: flex;
+  margin-top: var(--spacing-10);
+
+  span {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-5);
+  }
+
+  .ipSecurityButton {
+    margin-left: auto;
+
+    a {
+      text-decoration: none;
+      color: var(--common-font-color);
+    }
+  }
+}
+
+/* 로그인 상태유지 */
+.keepLoginCheckbox {
+  margin-left: auto;
+
+  label {
+    margin-top: 0.125rem;
+  }
+
+  @media (width >= 768px) {
+    margin-left: 0;
+  }
+}
+
+.keepLoginCheckbox input {
+  appearance: none;
+  margin: 0;
+  width: 24px;
+  height: 24px;
+  background-image: url('../unchecked.svg');
+  cursor: pointer;
+}
+
+.keepLoginCheckbox input:focus {
+  outline: none;
+}
+
+.keepLoginCheckbox input:focus-visible {
+  outline: 2px solid var(--common-focus-color);
+}
+
+.keepLoginCheckbox input:checked {
+  background-image: url('../checked.svg');
+}
+
+/* IP보안 - 모바일 환경에서는 보이지 않도록 스타일링*/
+.checkboxWrapper .ipSecurityButton {
+  display: none;
+
+  @media (width >= 768px) {
+    display: flex;
+  }
+}
+
+#ipSecurity {
+  position: absolute;
+  opacity: 0;
+}
+
+.label2btn {
+  cursor: pointer;
+}
+
+#ipSecurity:focus-visible + .label2btn {
+  outline: 2px solid var(--common-focus-color);
+}
+
+#ipSecurity:not(:checked) + .label2btn::after {
+  content: 'OFF';
+  color: var(--border-color-gray);
+}
+
+#ipSecurity:checked + .label2btn::after {
+  content: 'ON';
+  color: var(--naver-green);
+}
