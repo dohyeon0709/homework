@@ -23,7 +23,7 @@
           />
         </svg>
       </div>
-      <form>
+      <form method="GET" action="/">
         <div class="userInput">
           <label for="userEmail" class="sr-only">아이디(이메일)</label>
           <input type="email" name="email" id="userEmail" placeholder="아이디(이메일)" required />
@@ -31,7 +31,7 @@
         </div>
         <div class="userInput">
           <label for="userPassword" class="sr-only">비밀번호</label>
-          <input type="password" name="password" id="userPassword" placeholder="비밀번호" required />
+          <input type="password" name="password" id="userPassword" placeholder="비밀번호" required minlength="10" />
           <small>비밀번호는 10자리 이상 입력해 주세요.</small>
         </div>
         <button type="submit">로그인</button>
